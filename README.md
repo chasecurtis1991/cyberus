@@ -1,36 +1,108 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Cyberus Spotify Now Playing Overlay
+
+A sleek, glassmorphic Spotify "Now Playing" overlay for OBS and streaming, featuring a TRON Legacy-inspired electric blue aesthetic with smooth animations.
+
+![Spotify Now Playing Overlay](preview.png)
+
+## Features
+
+- 🎵 Real-time Spotify playback display
+- 🌟 Glassmorphic UI with TRON-inspired design
+- ⚡ Smooth, animated progress bar with electric blue pulse
+- 🖼️ Album artwork with hover effects
+- 🔗 Direct links to songs on Spotify
+- 🎮 OBS-ready transparent background
+
+## Tech Stack
+
+- **Framework**: Next.js 15 with App Router
+- **Styling**: Tailwind CSS
+- **Animations**: Framer Motion
+- **Language**: TypeScript
+- **API**: Spotify Web API
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 18 or later
+- A Spotify account
+- [Spotify Developer Application](https://developer.spotify.com/dashboard) credentials
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/cyberus.git
+   cd cyberus
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Create a `.env.local` file in the root directory:
+   ```env
+   SPOTIFY_CLIENT_ID=your_client_id
+   SPOTIFY_CLIENT_SECRET=your_client_secret
+   SPOTIFY_REFRESH_TOKEN=your_refresh_token
+   ```
+
+4. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
+5. Open [http://localhost:3000](http://localhost:3000) in your browser
+
+### OBS Setup
+
+1. Add a new "Browser" source in OBS
+2. Set the URL to your deployed application
+3. Set the width and height according to your needs
+4. Enable "Shutdown source when not visible"
+5. Check "Refresh browser when scene becomes active"
+
+## Usage
+
+The overlay will automatically update when:
+- A new song starts playing
+- The playback progress changes
+- Playback is paused or resumed
+
+Click either the album art or song title to open the current track in Spotify.
+
+## Development
 
 ```bash
+# Start development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# Build for production
+npm run build
+
+# Start production server
+npm run start
+
+# Run linting
+npm run lint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Contributing
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## License
 
-## Learn More
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-To learn more about Next.js, take a look at the following resources:
+## Acknowledgments
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Design inspired by TRON Legacy
+- Built with Next.js and Framer Motion
+- Powered by Spotify Web API

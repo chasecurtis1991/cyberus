@@ -152,7 +152,7 @@ export default function NowPlaying() {
           initial="exit"
           animate="enter"
           exit="exit"
-          className="cyber-container w-full h-40"
+          className="cyber-container w-full"
           role="region"
           aria-label="Currently playing on Spotify"
         >

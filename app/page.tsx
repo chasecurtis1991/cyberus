@@ -1,9 +1,9 @@
-import NowPlaying from "@/components/NowPlaying";
+import NowPlaying from '@/components/NowPlaying'
 
-export default function Overlay() {
+export default function Home() {
   return (
-    <div style={{ background: 'transparent' }}>
+    <main className="min-h-screen p-4">
       <NowPlaying />
-    </div>
-  );
+    </main>
+  )
 }

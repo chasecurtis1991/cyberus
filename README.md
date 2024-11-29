@@ -4,6 +4,92 @@ A sleek, glassmorphic Spotify "Now Playing" overlay for OBS and streaming, featu
 
 ![Spotify Now Playing Overlay](preview.png)
 
+## 🚀 Quick Start Guide
+
+### Step 1: Install Required Software
+1. Download and install [Node.js](https://nodejs.org/) (LTS version)
+2. Download and install [Git](https://git-scm.com/downloads)
+3. Download and install [Visual Studio Code](https://code.visualstudio.com/) (recommended editor)
+
+### Step 2: Get the Project
+1. Open Terminal (Command Prompt on Windows)
+2. Copy and paste these commands one by one:
+   ```bash
+   git clone https://github.com/yourusername/cyberus.git
+   cd cyberus
+   npm install
+   ```
+
+### Step 3: Set Up Spotify
+1. Go to [Spotify Developer Dashboard](https://developer.spotify.com/dashboard)
+2. Log in with your Spotify account
+3. Click "Create App"
+4. Fill in the form:
+   - App name: Choose any name (e.g., "Cyberus Overlay")
+   - Description: Anything you want
+   - Redirect URI: `http://localhost:3000/api/spotify/callback`
+   - Click "Save"
+5. On your app's page, click "Settings"
+6. Copy the "Client ID" and "Client Secret"
+
+### Step 4: Configure the Project
+1. In your project folder, create a file named `.env`
+2. Add these lines to the file:
+   ```env
+   SPOTIFY_CLIENT_ID=your_client_id_here
+   SPOTIFY_CLIENT_SECRET=your_client_secret_here
+   ```
+   Replace `your_client_id_here` and `your_client_secret_here` with the values from Step 3
+
+### Step 5: Get Your Refresh Token
+1. Open Terminal in your project folder
+2. Run:
+   ```bash
+   npm run dev
+   ```
+3. Open your web browser and go to: `http://localhost:3000/api/spotify/auth`
+4. Log in to Spotify if prompted
+5. After authorizing, you'll see your refresh token
+6. Copy the refresh token and add it to your `.env` file:
+   ```env
+   SPOTIFY_CLIENT_ID=your_client_id_here
+   SPOTIFY_CLIENT_SECRET=your_client_secret_here
+   SPOTIFY_REFRESH_TOKEN=your_refresh_token_here
+   ```
+
+### Step 6: Start the Overlay
+1. Run these commands in Terminal:
+   ```bash
+   npm run build
+   npm run start
+   ```
+2. Your overlay is now running at: `http://localhost:3000`
+
+### Step 7: Add to OBS
+1. In OBS, add a new "Browser" source
+2. Set the URL to: `http://localhost:3000`
+3. Set Width: 800 and Height: 200 (adjust as needed)
+4. Check "Refresh browser when scene becomes active"
+
+## 🎮 Using the Overlay
+- The overlay automatically updates when:
+  - A new song starts playing
+  - The playback progress changes
+  - Playback is paused or resumed
+- Click the album art or song title to open the current track in Spotify
+
+## 🔧 Troubleshooting
+- If the overlay shows nothing:
+  - Make sure Spotify is playing music
+  - Check that all environment variables are set correctly
+  - Try restarting the server (Stop with Ctrl+C, then `npm run start`)
+- If you need a new refresh token:
+  - Visit `http://localhost:3000/api/spotify/auth` again
+  - Update the `.env` file with the new token
+
+## 🆘 Need Help?
+Create an issue on GitHub or reach out to the community for support!
+
 ## Features
 
 - 🎵 Real-time Spotify playback display
@@ -20,58 +106,6 @@ A sleek, glassmorphic Spotify "Now Playing" overlay for OBS and streaming, featu
 - **Animations**: Framer Motion
 - **Language**: TypeScript
 - **API**: Spotify Web API
-
-## Getting Started
-
-### Prerequisites
-
-- Node.js 18 or later
-- A Spotify account
-- [Spotify Developer Application](https://developer.spotify.com/dashboard) credentials
-
-### Installation
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/cyberus.git
-   cd cyberus
-   ```
-
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-
-3. Create a `.env.local` file in the root directory:
-   ```env
-   SPOTIFY_CLIENT_ID=your_client_id
-   SPOTIFY_CLIENT_SECRET=your_client_secret
-   SPOTIFY_REFRESH_TOKEN=your_refresh_token
-   ```
-
-4. Start the development server:
-   ```bash
-   npm run dev
-   ```
-
-5. Open [http://localhost:3000](http://localhost:3000) in your browser
-
-### OBS Setup
-
-1. Add a new "Browser" source in OBS
-2. Set the URL to your deployed application
-3. Set the width and height according to your needs
-4. Enable "Shutdown source when not visible"
-5. Check "Refresh browser when scene becomes active"
-
-## Usage
-
-The overlay will automatically update when:
-- A new song starts playing
-- The playback progress changes
-- Playback is paused or resumed
-
-Click either the album art or song title to open the current track in Spotify.
 
 ## Development
 
